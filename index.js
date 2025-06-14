@@ -7,7 +7,7 @@ class TranscriptNavigation{
 
     const video = document.createElement("video");
     video.classList.add("introduction-video")
-    video.src = obj.url;
+    video.src = `${window.location.href}/${obj.url}`;
     video.controls = true;
     video.autoplay = true;
     video.muted = true;
