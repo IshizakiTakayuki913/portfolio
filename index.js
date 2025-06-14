@@ -80,7 +80,7 @@ const temp_p = document.createElement("p")
 temp_h.innerText = "作品"
 temp_p.innerText = "概要・説明文"
 
-fetch(`${window.location.origin}/contents.json`)
+fetch(`./contents.json`)
   .then(response => response.json())
   .then(data => {
     articles = data
