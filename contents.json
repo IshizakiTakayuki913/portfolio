@@ -1,0 +1,48 @@
+{
+  "article":[
+    {
+      "title": "プログラムで表現した「秋」",
+      "navigation": false,
+      "explanation": [
+        {
+          "time": 0.0,
+          "text": "大学１年後期のprocessingをつかった授業で制作した。"
+        },
+        {
+          "time": 10.0,
+          "text": "四角や円、多角形などの描画機能を使った"
+        }
+      ],
+      "video": false,
+      "video_url": "",
+      "image": true,
+      "image_url": "./img/aki.png"
+    },
+    {
+      "title": "ルービックキューブ手順解析（大学1年）",
+      "navigation": true,
+      "explanation": [
+        {
+          "time": 0.0,
+          "text": "ルービックキューブの手順を解析し完成までを3Dアニメーションで表示する。<br>"
+        },
+        {
+          "time": 0.0,
+          "text": "1.パソコンに接続したカメラからキューブの状態（色）を取得する<br>"
+        },
+        {
+          "time": 0.0,
+          "text": "2.　1.で取得された状態から完成までの手順を導く<br>"
+        },
+        {
+          "time": 0.0,
+          "text": "3.　.2で導いた手順をアニメーションで出力する"
+        }
+      ],
+      "video": true,
+      "video_url": "./video/cube.mp4",
+      "image": false,
+      "image_url": ""
+    }
+  ]
+}

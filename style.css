@@ -1,0 +1,73 @@
+/* 全体のリセット（好みで調整） */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;  /* ダーク系の背景 */
+  padding: 1rem 0;
+  z-index: 1000;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;  /* 中央揃え */
+  list-style: none;
+  gap: 2rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ffcc00;  /* ホバー時の色（黄色系） */
+}
+
+/* コンテンツがヘッダーに隠れないようにマージン追加 */
+body {
+  padding-top: 58px;
+}
+
+main {
+  margin: min(20px, 5%);
+}
+
+section {
+  padding: min(20px, 5%);
+}
+section:first-child {
+  padding-top: unset;
+}
+
+article {
+  padding: min(10px, 2%);
+  padding-bottom: unset;
+}
+
+
+.introduction-video {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  display: block;
+  margin: 1em auto;
+  border-radius: 10px;
+}
+
+.introduction-img {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  display: block;
+  margin: 1em auto;
+  border-radius: 10px;
+}
