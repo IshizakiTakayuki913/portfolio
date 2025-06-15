@@ -1,5 +1,11 @@
 {
-  "article":[
+  "career": [
+
+  ],
+  "research": [
+
+  ],
+  "works":[
     {
       "title": "プログラムで表現した「秋」",
       "navigation": false,
@@ -13,10 +19,13 @@
           "text": "四角や円、多角形などの描画機能を使った"
         }
       ],
-      "video": false,
-      "video_url": "",
-      "image": true,
-      "image_url": "./img/aki.png"
+      "articles": [
+        {
+          "type": "image",
+          "url": "./image/aki.png",
+          "caption": "出力結果"
+        }
+      ]
     },
     {
       "title": "ルービックキューブ手順解析（大学1年）",
@@ -39,10 +48,56 @@
           "text": "3.　.2で導いた手順をアニメーションで出力する"
         }
       ],
-      "video": true,
-      "video_url": "./video/neko.mp4",
-      "image": false,
-      "image_url": ""
+      "articles": [
+        {
+          "type": "video",
+          "url": "./video/neko.mp4",
+          "caption": "実行動画"
+        }
+      ]
+    },
+    {
+      "title": "ルービックキューブ手順解析（大学4年　研究)",
+      "navigation": false,
+      "explanation": [
+        "ルービックキューブの手順を解析し完成までを3Dアニメーションで表示する。<br>",
+        "1.パソコンに接続したカメラからキューブの状態（色）を取得する<br>",
+        "2.　1.で取得された状態から完成までの手順を導く<br>",
+        "3.　.2で導いた手順をアニメーションで出力する"
+      ],
+      "articles": [
+        {
+          "type": "video",
+          "url": "./video/cube2.mp4",
+          "caption": "実行動画"
+        },
+        {
+          "type": "image",
+          "url": "./image/aki.png",
+          "caption": "秋"
+        }
+      ]
+    },
+    {
+      "title": "3Dプリンターをつかった作品",
+      "navigation": false,
+      "explanation": [
+        "ピラミンクスという正四面体のルービックキューブを3Dプリンターで制作。",
+        "ピラミンクスを所持しておらず、購入したいと思ったことをきっかけに自身で制作する。",
+        "回転操作の向上を目的に内部にバネを使用した。"
+      ],
+      "articles": [
+        {
+          "type": "image",
+          "url": "image/pyramid.jpg",
+          "caption": "内部構造"
+        },
+        {
+          "type": "image",
+          "url": "./image/fusion.png",
+          "caption": "fusion360での制作画面"
+        }
+      ]
     }
   ]
 }

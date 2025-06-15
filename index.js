@@ -5,15 +5,20 @@ class TranscriptNavigation{
   constructor(obj = {el: null, url: null}){
     console.log(obj)
 
-    const video = document.createElement("video");
+    const video = document.createElement("video")
+
+    video.src = `${"https://ishizakitakayuki913.github.io/portfolio"}/${obj.url}`
+    // video.src = `${window.location.href}/${obj.url}`
+
     video.classList.add("introduction-video")
-    video.src = `${window.location.href}/${obj.url}`;
-    video.controls = true;
-    video.autoplay = true;
-    video.muted = true;
+    video.controls = true
+    video.autoplay = true
+    video.muted = true
+    video.height = "70%"
+    // video.height = "70%"
   
 
-    obj.el.appendChild(video);
+    return video
 
     
     // console.log(obj)
@@ -62,93 +67,146 @@ class TranscriptNavigation{
   }
 }
 
-// const articles = Array.from(document.querySelectorAll(".Transcript-Navigation")).map(e => e.parentElement)
-// const videos = []
+// temp_art.appendChild(temp_div2)
 
-// console.log(articles)
-// articles.forEach((e, i)=>{
-//   videos.push(new TranscriptNavigation(e))
-// })
-const works = document.querySelector("#works")
-
-const temp_art = document.createElement("article")
-const temp_h = document.createElement("h3")
-const temp_p = document.createElement("p")
-// temp_art.appendChild(_h)
-// temp_art.appendChild(_p)
-
-temp_h.innerText = "作品"
-temp_p.innerText = "概要・説明文"
 
 fetch(`${window.location.href}/contents.json`)
-  .then(response => response.json())
-  .then(data => {
-    articles = data
-    createArticles()
-    // const container = document.getElementById('content');
+.then(response => response.json())
+.then(data => {
+  articles = data
+  createArticles()
+  // const container = document.getElementById('content');
 
-    // data.forEach(item => {
-    //   const article = document.createElement('article');
+  // data.forEach(item => {
+  //   const article = document.createElement('article');
 
-    //   const title = document.createElement('h2');
-    //   title.textContent = item.title;
+  //   const title = document.createElement('h2');
+  //   title.textContent = item.title;
 
-    //   const content = document.createElement('p');
-    //   content.textContent = item.content;
+  //   const content = document.createElement('p');
+  //   content.textContent = item.content;
 
-    //   article.appendChild(title);
-    //   article.appendChild(content);
-    //   container.appendChild(article);
-    // });
-  })
-  .catch(error => {
-    console.error('読み込み失敗:', error);
-  });
+  //   article.appendChild(title);
+  //   article.appendChild(content);
+  //   container.appendChild(article);
+  // });
+})
+.catch(error => {
+  console.error('読み込み失敗:', error);
+});
 
-  function createArticles(){
-    articles.article.forEach((_art, i) => {
-      let isText = false
+// career
+// research
+// works
 
-      const art = temp_art.cloneNode(true)
-      const h = temp_h.cloneNode(true)
-      const p = temp_p.cloneNode(true)
+function createArticles(){
+  
+  const works = document.querySelector("#works")
 
-      art.appendChild(h)
-      art.appendChild(p)
+  const temp_caption =  document.createElement("div")
+  temp_caption.innerText = "キャプション"
+  temp_caption.classList.add("caption")
 
-      h.innerText = _art.title
-      const text = _art.explanation.map(e => e.text)
+  const temp_art = document.createElement("article")
+  const temp_div1 =  document.createElement("div")
+  const temp_div2 =  document.createElement("div")
+  temp_div2.classList.add("visual-div")
 
-      if(_art.navigation && _art.video){
-        p.innerHTML = "<span>"+text.join("</span><span>")+"</span>"
-        isText = true
 
-        videos.push(new TranscriptNavigation({
-          el: art,
-          url: _art.video_url
-        }))
-      }
+  const temp_img = document.createElement("img")
+  temp_img.classList.add("introduction-img")
 
-      if(!_art.navigation && _art.video){
-        videos.push(new TranscriptNavigation({
-          el: art,
-          url: _art.video_url
-        }))
-      }
+  const temp_h = document.createElement("h3")
+  const temp_p = document.createElement("p")
+  temp_h.innerText = "作品"
+  temp_p.innerText = "概要・説明文"
 
-      if(_art.image){
-        const img = document.createElement("img")
-        img.classList.add("introduction-img")
-        img.src = _art.image_url
-        art.appendChild(img)
-      }
+  temp_div1.appendChild(temp_h)
+  temp_div1.appendChild(temp_p)
 
-      if(!isText){
-        p.innerHTML = text.join("")
-      }
+  temp_art.appendChild(temp_div1)
 
+  console.log(articles.works)
+
+  articles.works.forEach((_art, i) => {
+    let isText = false
+
+    const art = temp_art.cloneNode(true)
+    // const div = Array.from(art.querySelectorAll("div"))
+    const h = art.querySelector("h3")
+    const p = art.querySelector("p")
+    
+    const c = temp_caption.cloneNode(true)
       
+    h.innerText = _art.title
 
-      works.appendChild(art)
+    const text = _art.explanation.map(e => e.text)
+    if(_art.navigation){
+      p.innerHTML = "<span>"+text.join("</span><span>")+"</span>"
+    }
+    else{
+      p.innerHTML = text.join("")
+    }
+
+    works.appendChild(art)
+
+    console.log(_art.articles)
+    _art.articles.forEach((arts, i) => {
+      const _d = temp_div2.cloneNode(true)
+      const _c = c.cloneNode(true)
+      if(arts.type == "video"){
+        _c.innerText = arts.caption
+
+        const _v = new TranscriptNavigation({
+          el: _d,
+          url: arts.url
+        })
+
+        videos.push(_v)
+        _d.appendChild(_v)
+
+        _d.appendChild(_c)
+        art.appendChild(_d)
+      }
+      else if(arts.type == "image"){
+        const _i = temp_img.cloneNode(true)
+        _i.src = arts.url
+        _c.innerText = arts.caption
+        
+        _d.appendChild(_i)
+        _d.appendChild(_c)
+        art.appendChild(_d)
+      }
     })
-  }
+
+    // if(_art.navigation && _art.video.length>0){
+    //   isText = true
+    // }
+
+    // if(!_art.navigation && _art.video){
+    //   const _d = temp_div2.cloneNode(true)
+    //   const _c = c.cloneNode(true)
+    //   _c.innerText = _art.video_caption
+
+    //   const _v = new TranscriptNavigation({
+    //     el: _d,
+    //     url: _art.video_url
+    //   })
+      
+    //   videos.push(_v)
+    //   _d.appendChild(_v)
+
+    //   _d.appendChild(_c)
+    //   art.appendChild(_d)
+    // }
+
+    // if(_art.image){
+
+    //   const _url = _art.image_url.split(" ")
+
+    //   _url.forEach(url => {
+        
+    //   })
+    // }
+  })
+}

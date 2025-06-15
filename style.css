@@ -35,6 +35,7 @@ nav ul li a:hover {
 /* コンテンツがヘッダーに隠れないようにマージン追加 */
 body {
   padding-top: 58px;
+  overflow-x:hidden;
 }
 
 main {
@@ -54,20 +55,83 @@ article {
 }
 
 
-.introduction-video {
-  width: 100%;
-  height: auto;
-  max-width: 600px;
-  display: block;
-  margin: 1em auto;
-  border-radius: 10px;
+
+/* .introduction-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: unset;
+    padding: unset;
+    border-radius: 10px;
 }
 
 .introduction-img {
   width: 100%;
   height: auto;
-  max-width: 600px;
   display: block;
-  margin: 1em auto;
+  margin: unset;
+  padding: unset;
   border-radius: 10px;
+} */
+
+/* video {
+  display: block;
+  margin: unset;
+  padding: unset;
+  height: 40vh;
+} */
+
+#works > article {
+  display: flex;
+  flex-wrap: wrap;
+  /* align-items: flex-start;  */
+  gap: 20px; /* 要素間の余白 */
 }
+
+/* #works > article:nth-child(even) {
+  flex-direction: row-reverse;
+} */
+
+#works > article > div {
+  max-width: 300px;
+  min-width: 150px;
+  height: 40vh;
+  max-height: 300px;
+}
+
+.introduction-video, .introduction-img {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  max-height: calc(90%);
+}
+
+/* flex-direction: row-reverse; */
+/* 
+.visual-div {
+    max-width: 300px;
+    min-width: 150px;
+    height: 40vh;
+
+} */
+
+.caption {
+  display: block;
+  text-align:center;
+}
+
+/* .visual-div::after {
+  content: "これは作品名です";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 4px 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  white-space: nowrap;
+} */
