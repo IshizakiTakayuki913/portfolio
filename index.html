@@ -18,8 +18,8 @@
     <header>
       <nav>
         <ul>
-          <li><a href="#career">ポートフォリオ</a></li>
-          <li><a href="#career">経歴</a></li>
+          <li><a >ポートフォリオ</a></li>
+          <li><a href="#introduction">経歴</a></li>
           <li><a href="#research">研究内容</a></li>
           <li><a href="#works">制作物</a></li>
           <li><a href="#future">今後作りたいもの</a></li>
@@ -28,13 +28,91 @@
     </header>
 
     <main>
-      <section id="career">
-        <h2>経歴</h2>
-        <article id="intro">自己紹介</article>
-        <article id="history">経歴</article>
-        <article id="certificates">資格</article>
-        <article id="skills">使用言語</article>
-        <article id="skills">趣味</article>
+      <section id="introduction">
+        <h2>紹介</h2>
+        <article id="intro">
+          <div id="profile">
+            <h3>石﨑　貴之 Ishizaki Takayuki</h3>
+            <p>
+              趣味：読書・運動・プログラミング・料理・ルービックキューブ<br>
+              興味分野：3Dプリンター・モーションスキャナー・機械制御<br>
+              使用可能言語：javaScript・Processing・Arduino・python・C<br>
+              使用可能環境: VScode・Azuer・Node.js
+            </p>
+          </div>
+          <div id="self-introduction">
+            <p>
+              ほにゃららほにゃららほにゃららほにゃららほにゃららほにゃららほにゃららほにゃららほにゃららほにゃららほにゃららほにゃらら
+              ほにゃららほにゃららほにゃららほにゃららほにゃららほにゃららほにゃららほにゃらら。<br>
+              ほにゃららほにゃららほにゃららほにゃららほにゃららほにゃららほにゃららほにゃらら。
+            </p>
+          </div>
+        </article>
+        <article id="history">
+          <h3>経歴</h3>
+          <table class="history-table">
+          </table>
+
+          <script>
+            const tab = document.querySelector(".history-table")
+            const _html = [
+              `<tr>
+                <th>年</th>
+                <th>学歴</th>
+              </tr>`,
+            ]
+            const _d = [
+              ["2018/4","私立祐誠高等学校 情報技術科 入学"],
+              ["2021/3","私立祐誠高等学校 情報技術科 卒業"],
+              ["2021/4","久留米工業大学 工学部 情報ネットワーク工学科 入学"],
+              ["2025/3","久留米工業大学 工学部 情報ネットワーク工学科 卒業"],
+              ["2025/4","久留米工業大学 大学院 電子情報システム工学専攻 入学"],
+              ["2027/3","久留米工業大学 大学院 電子情報システム工学専攻 卒業予定"],
+            ]
+            
+            _d.forEach((d, i)=>{
+              _html.push(`
+                <tr>
+                  <td>${d[0]}</td>
+                  <td>${d[1]}</td>
+                </tr>
+              `)
+            })
+            tab.innerHTML = _html.join("")
+          </script>
+        </article>
+        <article id="certificates">
+            <h3>資格</h3>
+            <table class="certificates-table">
+            </table>
+
+            <script>
+              const tab2 = document.querySelector(".certificates-table")
+              const _html2 = [
+                `<tr>
+                  <th>年</th>
+                  <th>資格</th>
+                </tr>`,
+              ]
+              const _d2 = [
+                ["2020/10","第二種電気工事士 取得"],
+                ["2022/10","基本情報技術者 取得"],
+                ["2022/7","情報セキュリティマネジメント試験 取得"],
+              ]
+              
+              _d2.forEach((d, i)=>{
+                _html2.push(`
+                  <tr>
+                    <td>${d[0]}</td>
+                    <td>${d[1]}</td>
+                  </tr>
+                `)
+              })
+              tab2.innerHTML = _html2.join("")
+            </script>
+        </article>
+        <!-- <article id="skills">使用言語</article>
+        <article id="skills">趣味</article> -->
       </section>
 
       <section id="research">

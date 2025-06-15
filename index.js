@@ -8,7 +8,7 @@ class TranscriptNavigation{
     const video = document.createElement("video")
 
     video.src = `${"https://ishizakitakayuki913.github.io/portfolio"}/${obj.url}`
-    // video.src = `${window.location.href}/${obj.url}`
+    // video.src = `${window.location.origin}/${obj.url}`
 
     video.classList.add("introduction-video")
     video.controls = true
@@ -70,7 +70,7 @@ class TranscriptNavigation{
 // temp_art.appendChild(temp_div2)
 
 
-fetch(`${window.location.href}/contents.json`)
+fetch(`${window.location.origin}/contents.json`)
 .then(response => response.json())
 .then(data => {
   articles = data

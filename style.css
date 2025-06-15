@@ -54,33 +54,73 @@ article {
   padding-bottom: unset;
 }
 
-
-
-/* .introduction-video {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: unset;
-    padding: unset;
-    border-radius: 10px;
+#introduction article {
+  padding: min(20px, 4%);
 }
 
-.introduction-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: unset;
-  padding: unset;
-  border-radius: 10px;
-} */
+/* 
+　********************************************
+                紹介
+　********************************************
+*/
 
-/* video {
-  display: block;
-  margin: unset;
-  padding: unset;
-  height: 40vh;
-} */
+#introduction {
+  display: flex;
+  flex-wrap: wrap;
+  /* align-items: flex-start;  */
+  /* gap: 20px;  */
+}
 
+#intro {
+  display: flex;
+  flex-wrap: wrap;
+  /* align-items: flex-start;  */
+  gap: 20px; 
+}
+
+#intro > div {
+  max-width: 50%;
+  min-width: 400px;
+  /* height: 40vh;
+  max-height: 300px; */
+}
+
+.history-table {
+  width: auto;
+
+}
+
+.history-table td {
+  padding: min(1vmin, 3px);
+}
+
+.certificates-table {
+  width: auto;
+
+}
+
+.certificates-table td {
+  padding: min(1vmin, 3px);
+}
+
+#history, #certificates {
+  width: auto;
+  /* max-width: 400px; */
+  min-width: 50%;
+}
+
+#certificates {
+  width: auto;
+  /* max-width: 400px;
+  min-width: 50%; */
+}
+/* 　紹介　終わり　 */
+
+/* 
+　********************************************
+                制作物
+　********************************************
+*/
 #works > article {
   display: flex;
   flex-wrap: wrap;
@@ -108,30 +148,7 @@ article {
   max-height: calc(90%);
 }
 
-/* flex-direction: row-reverse; */
-/* 
-.visual-div {
-    max-width: 300px;
-    min-width: 150px;
-    height: 40vh;
-
-} */
-
 .caption {
   display: block;
   text-align:center;
 }
-
-/* .visual-div::after {
-  content: "これは作品名です";
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  padding: 4px 8px;
-  font-size: 14px;
-  border-radius: 5px;
-  white-space: nowrap;
-} */
