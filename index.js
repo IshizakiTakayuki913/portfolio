@@ -74,6 +74,7 @@ fetch(`${window.location.origin}${window.location.pathname}contents.json`)
 .then(data => {
   articles = data
   createArticles()
+  createArticles2()
   // const container = document.getElementById('content');
 
   // data.forEach(item => {
@@ -128,6 +129,119 @@ function createArticles(){
   console.log(articles.works)
 
   articles.works.forEach((_art, i) => {
+    let isText = false
+
+    const art = temp_art.cloneNode(true)
+    // const div = Array.from(art.querySelectorAll("div"))
+    const h = art.querySelector("h3")
+    const p = art.querySelector("p")
+    
+    const c = temp_caption.cloneNode(true)
+      
+    h.innerText = _art.title
+
+    const text = _art.explanation.map(e => e.text)
+    if(_art.navigation){
+      p.innerHTML = "<span>"+text.join("</span><span>")+"</span>"
+    }
+    else{
+      p.innerHTML = text.join("")
+    }
+
+    works.appendChild(art)
+
+    console.log(_art.articles)
+    _art.articles.forEach((arts, i) => {
+      const _d = temp_div2.cloneNode(true)
+      const _c = c.cloneNode(true)
+      if(arts.type == "video"){
+        _c.innerText = arts.caption
+
+        const _v = new TranscriptNavigation({
+          el: _d,
+          url: arts.url
+        })
+
+        videos.push(_v)
+        _d.appendChild(_v)
+
+        _d.appendChild(_c)
+        art.appendChild(_d)
+      }
+      else if(arts.type == "image"){
+        const _i = temp_img.cloneNode(true)
+        _i.src = arts.url
+        _c.innerText = arts.caption
+        
+        _d.appendChild(_i)
+        _d.appendChild(_c)
+        art.appendChild(_d)
+      }
+    })
+
+    // if(_art.navigation && _art.video.length>0){
+    //   isText = true
+    // }
+
+    // if(!_art.navigation && _art.video){
+    //   const _d = temp_div2.cloneNode(true)
+    //   const _c = c.cloneNode(true)
+    //   _c.innerText = _art.video_caption
+
+    //   const _v = new TranscriptNavigation({
+    //     el: _d,
+    //     url: _art.video_url
+    //   })
+      
+    //   videos.push(_v)
+    //   _d.appendChild(_v)
+
+    //   _d.appendChild(_c)
+    //   art.appendChild(_d)
+    // }
+
+    // if(_art.image){
+
+    //   const _url = _art.image_url.split(" ")
+
+    //   _url.forEach(url => {
+        
+    //   })
+    // }
+  })
+}
+
+
+function createArticles2(){
+  
+  const works = document.querySelector("#research")
+
+  const temp_caption =  document.createElement("div")
+  temp_caption.innerText = "キャプション"
+  temp_caption.classList.add("caption")
+
+  const temp_art = document.createElement("article")
+  const temp_div1 =  document.createElement("div")
+  const temp_div2 =  document.createElement("div")
+  temp_div2.classList.add("visual-div")
+
+
+  const temp_img = document.createElement("img")
+  temp_img.classList.add("introduction-img")
+
+  const temp_h = document.createElement("h3")
+  const temp_p = document.createElement("p")
+  temp_h.innerText = "作品"
+  temp_p.innerText = "概要・説明文"
+
+  temp_div1.appendChild(temp_h)
+  temp_div1.appendChild(temp_p)
+
+  temp_art.appendChild(temp_div1)
+
+  console.log(articles.research)
+
+  articles.research.forEach((_art, i) => {
     let isText = false
 
     const art = temp_art.cloneNode(true)
