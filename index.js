@@ -69,8 +69,7 @@ class TranscriptNavigation{
 
 // temp_art.appendChild(temp_div2)
 
-
-fetch(`${window.location.origin}/contents.json`)
+fetch(`${window.location.origin}${window.location.pathname}contents.json`)
 .then(response => response.json())
 .then(data => {
   articles = data
